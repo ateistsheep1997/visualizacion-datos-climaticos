@@ -11,8 +11,8 @@ app.get('/', (req, res) => {
 });
 
 // Fallback route for unmatched routes
-app.get('*', (req, res) => {
-  res.sendFile(__dirname + '/public/index.html');
+app.use((req, res) => {
+  res.status(404).sendFile(__dirname + '/public/404.html');
 });
 
 app.listen(PORT, () => {
